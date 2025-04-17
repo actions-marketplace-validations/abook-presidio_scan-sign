@@ -17,9 +17,9 @@ inputs:
     description: "Set the WIZ client id"
     required: true
 
-   WIZ_CLIENT_SECRET:
+  WIZ_CLIENT_SECRET:
     description: "Set the WIZ client secret"
-    required: true
+    required: trues
 
 runs:
   using: "composite"
