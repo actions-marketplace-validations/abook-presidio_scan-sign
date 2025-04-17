@@ -25,12 +25,12 @@ runs:
   using: "composite"
   steps:
     - name: Check Cloud Provider 
-      if: ${{ inputs.CLOUD }} == "AWS"
+      if: ${{ inputs.CLOUD == "AWS" }}
       run: echo -e "CLOUD is AWS"
       shell: bash
 
     - name: Check Cloud Provider2
-      if: ${{ inputs.CLOUD }} == "AZURE"
+      if: ${{ inputs.CLOUD == "AZURE" }}
       run: echo -e "CLOUD is AZURE"
       shell: bash
 
