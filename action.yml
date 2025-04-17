@@ -2,9 +2,9 @@ name: 'scan-sign'
 author: 'abook-presidio'
 description: 'A module to Scan containers & code and then pass it on to notation CLI'
 
-env:
-  aws: "AWS"
-  azure: "AZURE"
+# env:
+#   aws: "AWS"
+#   azure: "AZURE"
 
 inputs:
   # cloud provider 
@@ -29,12 +29,12 @@ runs:
   using: "composite"
   steps:
     - name: Check Cloud Provider 
-      if: ${{ inputs.CLOUD == env.aws }}
+      if: ${{ inputs.CLOUD == 'AWS' }}
       run: echo -e "CLOUD is AWS"
       shell: bash
 
     - name: Check Cloud Provider2
-      if: ${{ inputs.CLOUD == env.azure }}
+      if: ${{ inputs.CLOUD != 'AWS' }}
       run: echo -e "CLOUD is AZURE"
       shell: bash
 
