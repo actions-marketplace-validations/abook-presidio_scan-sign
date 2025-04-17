@@ -1,0 +1,46 @@
+name: 'scan-sign'
+author: 'abook-presidio'
+description: 'A module to Scan containers & code and then pass it on to notation CLI'
+
+inputs:
+# cloud provider 
+CLOUD:
+  description: "The Cloud Provider being used [AWS | Azure]"
+  required: true
+
+REPO:
+  description: "The container repository URI"
+  required: true
+  
+# wiz items
+WIZ_CLIENT_ID:
+  description: "Set the WIZ client id"
+  required: true
+
+WIZ_CLIENT_SECRET:
+   description: "Set the WIZ client secret"
+   required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check Cloud Provider 
+      if: ${{ inputs.CLOUD }} == "AWS"
+      run: echo -e "CLOUD is AWS"
+      shell: bash
+
+    - name: Check Cloud Provider2
+      if: ${{ inputs.CLOUD }} == "AZURE"
+      run: echo -e "CLOUD is AZURE"
+      shell: bash
+
+
+    - name: Download wiz-cli binary
+      run: curl -o wizcli https://wizcli.app.wiz.io/latest/wizcli && chmod +x wizcli
+      shell: bash
+
+    - name: Authenticate to WIZ 
+      run: ./wizcli auth --id ${{ inputs.WIZ_CLIENT_ID}} --secret ${{inputs.wiz_client_secret}}
+      shell: bash
+
+
