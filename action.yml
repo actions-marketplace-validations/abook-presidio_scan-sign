@@ -3,23 +3,23 @@ author: 'abook-presidio'
 description: 'A module to Scan containers & code and then pass it on to notation CLI'
 
 inputs:
-# cloud provider 
-CLOUD:
-  description: "The Cloud Provider being used [AWS | Azure]"
-  required: true
+  # cloud provider 
+  CLOUD:
+    description: "The Cloud Provider being used [AWS | Azure]"
+    required: true
 
-REPO:
-  description: "The container repository URI"
-  required: true
+  REPO:
+    description: "The container repository URI"
+    required: true
   
-# wiz items
-WIZ_CLIENT_ID:
-  description: "Set the WIZ client id"
-  required: true
+  # wiz items
+  WIZ_CLIENT_ID:
+    description: "Set the WIZ client id"
+    required: true
 
-WIZ_CLIENT_SECRET:
-   description: "Set the WIZ client secret"
-   required: true
+   WIZ_CLIENT_SECRET:
+    description: "Set the WIZ client secret"
+    required: true
 
 runs:
   using: "composite"
@@ -42,5 +42,3 @@ runs:
     - name: Authenticate to WIZ 
       run: ./wizcli auth --id ${{ inputs.WIZ_CLIENT_ID}} --secret ${{inputs.wiz_client_secret}}
       shell: bash
-
-
