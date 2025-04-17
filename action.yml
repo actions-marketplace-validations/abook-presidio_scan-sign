@@ -23,7 +23,7 @@ inputs:
 
   WIZ_CLIENT_SECRET:
     description: "Set the WIZ client secret"
-    required: trues
+    required: true
 
 runs:
   using: "composite"
@@ -38,6 +38,8 @@ runs:
       run: echo -e "CLOUD is AZURE"
       shell: bash
 
+    - name: Echo Inputs Cloud
+      run: echo -e ${{ inputs.CLOUD }}
 
     - name: Download wiz-cli binary
       run: curl -o wizcli https://wizcli.app.wiz.io/latest/wizcli && chmod +x wizcli
