@@ -56,11 +56,11 @@ runs:
       shell: bash
 
     - name: Scan Directory Secrets
-      run: wizcli dir scan --path .  -p "Default secrets policy"
+      run: ./wizcli dir scan --path .  -p "Default secrets policy"
       shell: bash 
 
     - name: Scan Directory Vulnerabilties
-      run: wizcli dir scan --path .  -p "Default vulnerabilities policy"
+      run: ./wizcli dir scan --path .  -p "Default vulnerabilities policy"
       shell: bash
 
     
