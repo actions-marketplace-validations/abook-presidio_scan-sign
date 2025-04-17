@@ -38,8 +38,13 @@ runs:
       run: echo -e "CLOUD is AZURE"
       shell: bash
 
-    - name: Echo Inputs Cloud
-      run: echo -e ${{ inputs.CLOUD }}
+    - name: Download ECR Credential Helper
+      if: ${{ inputs.CLOUD == 'AWS' }}
+      run: |
+          sudo apt update
+          sudo apt install -y amazon-ecr-credential-helper
+          cd ~/
+          pwd
       shell: bash
 
     - name: Download wiz-cli binary
@@ -49,3 +54,13 @@ runs:
     - name: Authenticate to WIZ 
       run: ./wizcli auth --id ${{ inputs.WIZ_CLIENT_ID}} --secret ${{inputs.wiz_client_secret}}
       shell: bash
+
+    - name: Scan Directory Secrets
+      run: wizcli dir scan --path .  -p "Default secrets policy"
+      shell: bash 
+
+    - name: Scan Directory Vulnerabilties
+      run: wizcli dir scan --path .  -p "Default vulnerabilities policy"
+      shell: bash
+
+    
