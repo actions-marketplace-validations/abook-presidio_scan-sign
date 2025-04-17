@@ -40,6 +40,7 @@ runs:
 
     - name: Echo Inputs Cloud
       run: echo -e ${{ inputs.CLOUD }}
+      shell: bash
 
     - name: Download wiz-cli binary
       run: curl -o wizcli https://wizcli.app.wiz.io/latest/wizcli && chmod +x wizcli
