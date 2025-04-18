@@ -61,7 +61,7 @@ runs:
       shell: bash
 
     - name: Build Docker Image
-      run: docker build . -t TEST_TAG
+      run: docker build . -t testtag
       shell: bash 
 
     - name: Download wiz-cli binary
