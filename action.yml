@@ -89,7 +89,8 @@ runs:
     - name: Install notation cli
       shell: bash
       run: |
-        cp notation/notation ~/notation-cli/notation
+        ls
+        cp notation ~/notation-cli/notation
         echo 'export PATH="$PATH:~/notation-cli/notation"' >> ~/.bashrc
 
 
