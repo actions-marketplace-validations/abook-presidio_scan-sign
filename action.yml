@@ -80,17 +80,17 @@ runs:
       run: ./wizcli dir scan --path .  -p "Default vulnerabilities policy"
       shell: bash
     
-    - name: Install notation cli
-      shell: bash
-      run: |
-        sudo apt install -y /home/runner/work/securecontainer/securecontainer/aws-signer-notation-cli_amd64.deb
-
-
     # - name: Install notation cli
     #   shell: bash
     #   run: |
-    #     cp notation/notation ~/notation-cli/notation
-    #     echo 'export PATH="$PATH:~/notation-cli/notation"' >> ~/.bashrc
+    #     sudo apt install -y /home/runner/work/securecontainer/securecontainer/aws-signer-notation-cli_amd64.deb
+
+
+    - name: Install notation cli
+      shell: bash
+      run: |
+        cp notation/notation ~/notation-cli/notation
+        echo 'export PATH="$PATH:~/notation-cli/notation"' >> ~/.bashrc
 
 
     
